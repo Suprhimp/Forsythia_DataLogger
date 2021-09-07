@@ -142,6 +142,8 @@
 #include "Led.h"
 #include "IMU.h"
 
+#include "DashBoardLed.h"
+
 #if HLD_BOARD == HLD_BOARD_SB275
 #include "UserInterface.h"
 #elif HLD_BOARD == HLD_BOARD_AK237

@@ -16,7 +16,7 @@
 
 #include "CanCommunication.h"
 #include "AccumulatorManager_master.h"
-#include "RVC.h"
+// #include "RVC.h"
 #include "kelly8080ips_can.h"
 #include "OrionBms2.h"
 #include "SteeringWheel.h"
@@ -164,7 +164,7 @@ void Task_init (void)
 	}
 	/*SDP initialization*/
 	{
-		SDP_PedalBox_init();
+		// SDP_PedalBox_init();
 		SDP_SteeringAngle_init();
 		SDP_WheelSpeed_init();
 	}
@@ -173,8 +173,13 @@ void Task_init (void)
 		// AccumulatorManager_master_init();
 		kelly8080ips_can_init();
 		OrionBms2_init();
-		RVC_init();
+		// RVC_init();
 		SteeringWheel_init();
+		SDP_DashBoardLed_init();
+		SDP_TEMP1_LED_ON();
+		SDP_TEMP2_LED_ON();
+		SDP_SDC_LED_ON();
+		SDP_BSPD_LED_ON();
 	}
 
 	/*HLD initialization finished*/
@@ -235,7 +240,7 @@ void Task_IsrCb_1ms (void)
 		SDP_WheelSpeed_run_1ms();
 	}
 	{
-		RVC_run_1ms();
+		// RVC_run_1ms();
 	}
 	HLD_GtmTomBeeper_run_1ms();
 
@@ -249,7 +254,7 @@ void Task_10ms (void)			//Slot 0
 	stm_buf = IfxStm_get(&MODULE_STM0);
 	Task_counter_service_10ms();
 
-	RVC_run_10ms();
+	// RVC_run_10ms();
 
 	// HLD_UserInterface_run_10ms();
 
